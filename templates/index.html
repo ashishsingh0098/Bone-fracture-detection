@@ -15,7 +15,7 @@
 
     <script>
         const form = document.querySelector('form');
-        form.onsubmit = async (event) => {
+		form.onsubmit = async (event) => {
             event.preventDefault();
             const formData = new FormData(form);
             const response = await fetch('/predict', {
@@ -23,7 +23,15 @@
                 body: formData
             });
             const result = await response.json();
-            document.getElementById('result').textContent = `Prediction: ${result.prediction}`;
+
+			const predictionValue = result.prediction;  // Extract the prediction value
+			let fractureStatus;
+			if (predictionValue < 0.5) {
+				fractureStatus = "Fractured";
+			} else {
+				fractureStatus = "Not Fractured";
+			}
+            document.getElementById('result').textContent = `Prediction: ${result.prediction}   ${fractureStatus}`;
         };
     </script>
 </body>
