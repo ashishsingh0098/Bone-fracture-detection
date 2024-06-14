@@ -1,18 +1,5 @@
-numpy
-pandas
-matplotlib
-seaborn
-scikit-learn
 tensorflow
-dvc
-python-box
-pyYAML
-tqdm
-ensure
-joblib
-types-pyYAML
-scipy
 Flask
-Flask-Cors
+Pillow
 
 -e .
